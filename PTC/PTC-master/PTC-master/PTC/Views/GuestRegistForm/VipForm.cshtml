@@ -1,0 +1,109 @@
+﻿@model GuestReg
+@{
+    ViewData["Title"] = "Form";
+}
+
+<div class="container-form">
+    <form asp-action="Regist" enctype="multipart/form-data">
+        <p>Meeting With: @ViewData["Met"]</p>
+        <div class="mb-3">
+            <label class="form-label">Guest Name</label>
+            <input asp-for="Name" type="text" class="form-control" required />
+            <input asp-for="MetId" type="hidden" class="form-control" value="@ViewData["MetId"]" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="SelectCategory">Category</label>
+            <select name="SelectCategory" class="form-select" id="SelectCategory">
+                @if (ViewData["Category"] != null)
+                {
+                    foreach (var category in ViewData["Category"] as List<GuestCategory>)
+                    {
+                        <option value="@category.Id">@category.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name="Overseas" value="true" id="OverseasCheckbox">
+                <input type="hidden" name="Overseas" value="false" />
+                <label class="form-check-label" for="OverseasCheckbox">Overseas</label>
+            </div>
+            <select name="SelectCountry" class="form-select" id="SelectCountry">
+                @if (ViewData["Country"] != null)
+                {
+                    foreach (var country in ViewData["Country"] as List<CountryModel>)
+                    {
+                        <option value="@country.Code">@country.Name</option>
+                    }
+                }
+            </select>
+            <input type="hidden" name="SelectCountry" value="IDN" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Company</label>
+            <input asp-for="Company" type="text" class="form-control" required />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="CompanyType" name="CompanyType" value="true">
+                <input type="hidden" name="CompanyType" value="false" />
+                <label class="form-check-label" for="CompanyType">Panasonic Group</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Department</label>
+            <input asp-for="DeptSect" type="text" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input asp-for="Email" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Total Guest</label>
+            <input asp-for="Total" type="text" class="form-control" required />
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="StartDate" class="form-label">Start Date</label>
+                <input asp-for="StartDate" type="date" class="form-control" id="StartDate" required />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="EndDate" class="form-label">End Date</label>
+                <input asp-for="EndDate" type="date" class="form-control" id="EndDate" required />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Requirement</label>
+            <textarea asp-for="Requirement" maxlength="500" cols="10" wrap="true" class="form-control" rows="5" required></textarea>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-main">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get references to the checkbox and select box
+    const overseasCheckbox = document.getElementById('OverseasCheckbox');
+    const selectCountry = document.getElementById('SelectCountry');
+
+    // Function to toggle select box state
+    function toggleSelectBox() {
+        // Check if the checkbox is checked
+        if (overseasCheckbox.checked) {
+            // If checked, enable the select box
+            selectCountry.disabled = false;
+        } else {
+            // If not checked, disable the select box and set its value to 'Indonesia'
+            selectCountry.disabled = true;
+            selectCountry.value = 'IDN'
+        }
+    }
+
+    // Initially toggle select box state
+    toggleSelectBox();
+
+    // Add event listener to checkbox to toggle select box state
+    overseasCheckbox.addEventListener('change', toggleSelectBox);
+</script>

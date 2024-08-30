@@ -1,0 +1,53 @@
+﻿@model List<User>;
+@{
+    var lockedIds = ViewData["LockedId"] as List<int>;
+}
+<div class="mt-4">
+    <form method="post" action="@Url.Action("Add")" class="d-flex align-items-center gap-4">
+        <input type="text" class="form-control" placeholder="Add Mobile User" name="username" id="username">
+        <button type="submit" class="btn btn-main">Add</button>
+    </form>
+    <table id="guestListTable" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody> 
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @user.Username
+                    </td>
+                    <td class="d-flex gap-2">
+                        <form action="@Url.Action("Reset")" onsubmit="return confirm('Are you sure you want to reset the password?');">
+                            <input type="hidden" name="id" id="id" value="@user.Id" />
+                            <button class="btn btn-warning">
+                                Reset
+                            </button>
+                        </form>
+
+                        <form action="@Url.Action("Delete")" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="id" id="id" value="@user.Id" />
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+
+                        @if (lockedIds != null && lockedIds.Contains(user.Id))
+                        {
+                            <form action="@Url.Action("Unlock")" method="post" onsubmit="return confirm('Are you sure you want to unlock this account?');">
+                                <input type="hidden" name="id" id="id" value="@user.Id" />
+                                <button type="submit" class="btn btn-danger">
+                                    Unlock
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #212529;
+        }
+
+        .title, footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container-form {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin: 40px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ced4da;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        @media (max-width: 600px) {
+            .container-form {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h3>Details</h3>
+    </div>
+    <div class="container-form">
+        <table>
+            <tr>
+                <th>Guest Requester</th>
+                <td>{GuestRequester}</td>
+            </tr>
+            <tr>
+                <th>Meeting With</th>
+                <td>{GuestMet}</td>
+            </tr>
+            <tr>
+                <th>Guest Name</th>
+                <td>{GuestName}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{GuestCategory}</td>
+            </tr>
+            <tr>
+                <th>Overseas</th>
+                <td>{GuestOverseas}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{GuestCountry}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{GuestCompany}</td>
+            </tr>
+            <tr>
+                <th>Panasonic Group</th>
+                <td>{GuestCompanyType}</td>
+            </tr>
+            <tr>
+                <th>Department</th>
+                <td>{GuestDepartment}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{GuestEmail}</td>
+            </tr>
+            <tr>
+                <th>Identification Number</th>
+                <td>{GuestIdentificationNumber}</td>
+            </tr>
+            <tr>
+                <th>Total Guest</th>
+                <td>{GuestNumber}</td>
+            </tr>
+            <tr>
+                <th>Start Date</th>
+                <td>{GuestStartDate}</td>
+            </tr>
+            <tr>
+                <th>End Date</th>
+                <td>{GuestEndDate}</td>
+            </tr>
+            <tr>
+                <th>Purpose of Visit</th>
+                <td>{GuestPurpose}</td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        This is an auto generated Mail Message, Scan the Attached QR Code to get into PMI
+    </footer>
+</body>
+</html>

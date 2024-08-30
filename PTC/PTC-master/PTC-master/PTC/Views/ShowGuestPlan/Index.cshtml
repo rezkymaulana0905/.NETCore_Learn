@@ -1,0 +1,145 @@
+﻿@using PTC.Controllers
+@using PTC.Utils
+@model Pagination<ShowGuestModel>
+@{
+    ViewData["title"] = "Guest Plan";
+}
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Guest Plan</h2>
+                <form method="get" action="@Url.Action("Index")" class="show-guest-form" id="guest-form">
+                    <div>
+                        <input type="date" name="startDate" id="startDate" value="@ViewData["startDate"]" class="form-control" />
+                    </div>
+                    <div>
+                        <input type="date" name="endDate" id="endDate" value="@ViewData["endDate"]" class="form-control" />
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Search..." value="@ViewData["searchQuery"]">
+                    </div>
+                </form>
+            </div>
+
+            <table id="guestListTable" class="table table-striped table-hover">
+    <thead>
+        <tr class="d-flex">
+            <th class="col-1">Date</th>
+            <th class="col-1">Name</th>
+            <th class="col-1">Category</th>
+            <th class="col-1">Country</th>
+            <th class="col-1">Company</th>
+            <th class="col-1">Company Type</th>
+            <th class="col-1">Department</th>
+            <th class="col-2">Identification Number</th>
+            <th class="col-1">Total Guest</th>
+            <th class="col-2">Image</th>
+            <th class="col-4">Purpose of Visit</th>
+            <th class="col-2">Requester Name</th>
+            <th class="col-2">Meeting With</th>
+            <th class="col-2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="d-flex">
+                <td class="col-1">@Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.Name)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.Category)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.Country)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.Company)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.CompanyType)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.DeptSect)</td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.NationalId)</td>
+                <td class="col-1">@Html.DisplayFor(modelItem => item.Total)</td>
+                <td class="col-2">
+                    @if (item != null && item.ImageData != null)
+                    {
+                        var base64String = Convert.ToBase64String(item.ImageData);
+                        <a href="#" onclick="openModal('@base64String')">
+                            <img src="data:image/png;base64,@base64String" alt="Guest Image" class="guest-image" />
+                        </a>
+                    }
+                    else
+                    {
+                        <p>No image available</p>
+                    }
+                </td>
+                <td class="col-4">@Html.DisplayFor(modelItem => item.Requirement)</td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.Requester)</td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.Met)</td>
+                <td class="col-2">
+                    <form method="get" action="@Url.Action("EditGuestForm", "GuestRegistForm")">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-warning">Edit</button>
+                    </form>
+                    <form id="delete-form" method="get" action="@Url.Action("Delete", "GuestRegistForm")" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+            @{
+                var prevDisabled = !Model.HasPreviousPage ? "btn-disabled" : "";
+                var nextDisabled = !Model.HasNextPage ? "btn-disabled" : "";
+            }
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["currentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["currentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+<div id="imageModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" onclick="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openModal(base64String) {
+        var modal = document.getElementById("imageModal");
+        var modalImage = document.getElementById("modalImage");
+
+        modal.style.display = "block";
+        modalImage.src = 'data:image/png;base64,' + base64String;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+    }
+
+    const dateInput = document.getElementById("endDate");
+
+    // Add event listener for input change
+    dateInput.addEventListener("change", function () {
+        // Submit the form when the date changes
+        document.getElementById("guest-form").submit();
+    });
+</script>

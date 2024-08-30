@@ -1,0 +1,48 @@
+﻿@using PTC.Controllers
+@model ShowGuestAttndnc
+@{
+    ViewData["Title"] = "Edit Guest Form";
+}
+
+<div class="container-form">
+    <form asp-action="Update" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden" class="form-control" value="@Model.Id" />
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input asp-for="Date" type="text" class="form-control" value="@Model.Date" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Guest Name</label>
+            <input asp-for="Name" type="text" class="form-control" value="@Model.Name" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Time In</label>
+            <input asp-for="TimeIn" type="text" class="form-control" value="@Model.TimeIn" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Time Out</label>
+            <input asp-for="TimeOut" type="text" class="form-control" value="@Model.TimeOut" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of People</label>
+            <input asp-for="People" type="text" class="form-control" value="@Model.People" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Total Guest</label>
+            <input asp-for="Requirement" type="text" class="form-control" value="@Model.Requirement" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Requester Name</label>
+            <input asp-for="Requester" type="text" class="form-control" value="@Model.Requester" readonly />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Meeting With</label>
+            <input asp-for="Met" type="text" class="form-control" value="@Model.Met" readonly />
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-main">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>

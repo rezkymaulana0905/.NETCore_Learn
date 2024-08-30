@@ -1,0 +1,91 @@
+﻿@using PTC.Utils
+@model Pagination<VhcSpplier>
+@{
+    ViewData["title"] = "Supplier Traffic";
+}
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row justify-content-between">
+                    <h2 class="col">Supplier Traffic</h2>
+                    <form method="get" action="@Url.Action("Index")" class="show-guest-form" id="show-supplier-traffic">
+                        <div>
+                            <input type="date" name="startDate" id="startDate" value="@ViewData["startDate"]" class="form-control" />
+                        </div>
+                        <div>
+                            <input type="date" name="endDate" id="endDate" value="@ViewData["endDate"]" class="form-control" />
+                        </div>
+                        <div class="search-box">
+                            <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Search..." value="@ViewData["searchQuery"]">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <table id="EmpTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Vehicle Id</th>
+                        <th>Vehicle Type</th>
+                        <th>Company</th>
+                        <th>Passanger</th>
+                        <th>Time In</th>
+                        <th>Time Out</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.VehicleId)</td>
+                                <td>@Html.DisplayFor(model => item.VehicleType)</td>
+                                <td>@Html.DisplayFor(model => item.Company)</td>
+                                <td>@Html.DisplayFor(model => item.PassangerCount)</td>
+                                <td>@Html.DisplayFor(model => item.InTime)</td>
+                                <td>@{
+                                        if (item.ConfirmOutTime != null)
+                                        {
+                                            @Html.DisplayFor(model => item.ConfirmOutTime)
+                                        } else
+                                        {
+                                            @: No Time Out Yet
+                                        }
+                                    }</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @{
+                var prevDisabled = !Model.HasPreviousPage ? "btn-disabled" : "";
+                var nextDisabled = !Model.HasNextPage ? "btn-disabled" : "";
+            }
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    const dateInput = document.getElementById("endDate");
+
+    // Add event listener for input change
+    dateInput.addEventListener("change", function () {
+        // Submit the form when the date changes
+        document.getElementById("show-supplier-traffic").submit();
+    });
+</script>

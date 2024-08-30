@@ -1,0 +1,9 @@
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.csproj.AssemblyReference.cache
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.AssemblyInfoInputs.cache
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.AssemblyInfo.cs
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.csproj.CoreCompileInputs.cache
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.RazorAssemblyInfo.cache
+C:\Users\rezky.maulana\Source\Repos\ToDoApi\ToDoApi\obj\Debug\net8.0\ToDoApi.RazorAssemblyInfo.cs

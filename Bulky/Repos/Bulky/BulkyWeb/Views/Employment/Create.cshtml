@@ -1,0 +1,57 @@
+﻿@model Employment
+
+<form method="post">
+
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary"> Create Employment</h2>
+            </hr>
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>@*  display validation under header  *@
+        <div class="mb-3 row p-1">
+            @* adding "row to be more responsive  *@
+            <label asp-for="EMPID" class="p-0"></label>
+            <input asp-for="EMPID" type="text" class="form-control">
+            <span asp-validation-for="EMPID" class="text-danger"></span> @* display validation under textbox *@
+        </div>
+        <div class="mb-3 row p-1">
+            @* adding "row" to be more responsive  *@
+            <label asp-for="NAME" class="p-0"></label>
+            <input asp-for="NAME" type="text" class="form-control">
+            <span asp-validation-for="NAME" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+                @* adding "row" to be more responsive  *@
+                <label asp-for="STATUS" class="p-0"></label>
+                <input asp-for="STATUS" type="text" class="form-control">
+                <span asp-validation-for="STATUS" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+                @* adding "row" to be more responsive  *@
+                <label asp-for="JOBID" class="p-0"></label>
+                <input asp-for="JOBID" type="text" class="form-control">
+                <span asp-validation-for="JOBID" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+                @* adding "row" to be more responsive  *@
+                <label asp-for="JOINDATE" class="p-0"></label>
+                <input asp-for="JOINDATE" type="text" class="form-control">
+                <span asp-validation-for="JOINDATE" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Create</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Employment" asp-action="Index" class="btn btn-secondary form-control"> Back To List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@*  this scripts to show validation alert without take data from server/ without refresh page *@
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

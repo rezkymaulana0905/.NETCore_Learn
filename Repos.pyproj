@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5ad5af5d-4d95-4f2c-b561-e5a995ad47ab}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\CRUDinCoreMVC.csproj.FileListAbsolute.txt" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\bundle\CRUDinCoreMVC.styles.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\projectbundle\CRUDinCoreMVC.bundle.scp.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\Views\Shared\_Layout.cshtml.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\css\site.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\favicon.ico" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\js\site.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery\dist\jquery.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery\dist\jquery.min.js" />
+    <Content Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\bundle" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\projectbundle" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\obj\Debug\net8.0\scopedcss\Views\Shared" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\Views\Shared" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\css" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\js" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\css" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\bootstrap\dist\js" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation-unobtrusive" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery-validation\dist" />
+    <Folder Include="CRUDinCoreMVC\CRUDinCoreMVC\wwwroot\lib\jquery\dist" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

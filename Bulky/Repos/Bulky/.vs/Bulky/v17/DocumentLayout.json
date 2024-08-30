@@ -1,0 +1,149 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\LEARN\\BULKY\\Repos\\Bulky\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\views\\employment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\views\\employment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\models\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\models\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\controllers\\employmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\controllers\\employmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|g:\\learn\\bulky\\repos\\bulky\\bulkyweb\\migrations\\20240710115445_employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977D9A75-3610-4389-AA4C-4B1113D1F03D}|BulkyWeb\\BulkyWeb.csproj|solutionrelative:bulkyweb\\migrations\\20240710115445_employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 170,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Views\\Employment\\Create.cshtml",
+              "RelativeDocumentMoniker": "BulkyWeb\\Views\\Employment\\Create.cshtml",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Views\\Employment\\Create.cshtml",
+              "RelativeToolTip": "BulkyWeb\\Views\\Employment\\Create.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC8AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T03:39:20.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Views\\Category\\Create.cshtml",
+              "RelativeDocumentMoniker": "BulkyWeb\\Views\\Category\\Create.cshtml",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Views\\Category\\Create.cshtml",
+              "RelativeToolTip": "BulkyWeb\\Views\\Category\\Create.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T03:39:06.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "BulkyWeb\\Controllers\\CategoryController.cs",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "BulkyWeb\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwBYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T01:33:25.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmploymentController.cs",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Controllers\\EmploymentController.cs",
+              "RelativeDocumentMoniker": "BulkyWeb\\Controllers\\EmploymentController.cs",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Controllers\\EmploymentController.cs",
+              "RelativeToolTip": "BulkyWeb\\Controllers\\EmploymentController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAowBoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T11:35:00.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employment.cs",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Models\\Employment.cs",
+              "RelativeDocumentMoniker": "BulkyWeb\\Models\\Employment.cs",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Models\\Employment.cs",
+              "RelativeToolTip": "BulkyWeb\\Models\\Employment.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T03:12:21.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "BulkyWeb\\Models\\Category.cs",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Models\\Category.cs",
+              "RelativeToolTip": "BulkyWeb\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T03:12:26.786Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 78,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20240710115445_Employment.cs",
+              "DocumentMoniker": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Migrations\\20240710115445_Employment.cs",
+              "RelativeDocumentMoniker": "BulkyWeb\\Migrations\\20240710115445_Employment.cs",
+              "ToolTip": "G:\\LEARN\\BULKY\\Repos\\Bulky\\BulkyWeb\\Migrations\\20240710115445_Employment.cs",
+              "RelativeToolTip": "BulkyWeb\\Migrations\\20240710115445_Employment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T11:54:46.079Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

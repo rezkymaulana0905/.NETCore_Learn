@@ -1,0 +1,35 @@
+﻿@model DdedmEmployee
+@{
+    ViewData["title"] = "Register a Guest";
+    var level = Context.Session.GetString("_Level");
+}
+
+
+<div class="d-flex align-items-center justify-content-center" style="height: 90vh;">
+    <div class="card m-auto p-4" style="width: 360px;">
+        @if (ViewBag.DropDownEmp == null)
+        {
+            <form asp-controller="GuestRegist" asp-action="Index" method="get" class="container">
+                <div class="mb-3">
+                    @Html.DropDownList("selectedSection", (SelectList)ViewBag.DropDownSec, "Recepient Section", new { @class = "form-select", @required = "required" })
+                </div>
+                <button type="submit" class="btn btn-main w-100">Next</button>
+            </form>
+        }
+        else
+        {
+            <form asp-controller="GuestRegist" asp-action="Form" method="get" class="container">
+                <div class="mb-3">
+                    @Html.DropDownList("id", (SelectList)ViewBag.DropDownEmp, "Choose Employee", new { @class = "form-select", @required = "required"})
+                </div>
+                @if (level != "4")
+                {
+                    <div class="mb-3">
+                        @Html.DropDownList("FormType", (SelectList)ViewBag.DropDownForm, "Choose Form", new { @class = "form-select", @required = "required" })
+                    </div>
+                }
+                <button type="submit" class="btn btn-main w-100">Submit</button>
+            </form>
+        }
+    </div>
+</div>

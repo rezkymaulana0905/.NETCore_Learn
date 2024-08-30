@@ -1,0 +1,43 @@
+﻿@model List<GuestCategory>;
+@{
+    GuestCategory cat = ViewData["Category"] as GuestCategory;   
+}
+<div class="mt-4">
+    <form method="post" action="@Url.Action("Edit")" class="d-flex align-items-center gap-4">
+        <input type="text" class="form-control" placeholder="Add Category" name="categoryName" id="categoryName" value="@cat.CategoryName">
+        <input type="hidden" class="form-control" placeholder="Add Category" name="categoryId" id="categoryId" value="@cat.Id">
+        <button type="submit" class="btn btn-warning">Edit</button>
+    </form>
+    <table id="guestListTable" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>
+                        @category.CategoryName
+                    </td>
+                    <td class="d-flex gap-2">
+                        <form action="@Url.Action("EditPage")">
+                            <input type="hidden" name="id" id="id" value="@category.Id" />
+                            <button class="btn btn-warning">
+                                Edit
+                            </button>
+                        </form>
+                        <form action="@Url.Action("Delete")" method="post" onsubmit="return confirm('Are You sure you want to delete this item?');">
+                            <input type="hidden" name="id" id="id" value="@category.Id" />
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

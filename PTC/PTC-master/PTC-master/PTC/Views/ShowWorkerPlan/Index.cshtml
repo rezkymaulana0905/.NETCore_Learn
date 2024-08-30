@@ -1,0 +1,83 @@
+﻿@using PTC.Utils
+@model Pagination<WorkPermitModel>
+@{
+    ViewData["title"] = "Contractor Plan";
+}
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row justify-content-between">
+                    <h2 class="col">Contractor Plan</h2>
+                    <form method="get" action="@Url.Action("Index")" class="show-guest-form" id="worker-form">
+                        <div>
+                            <input type="date" name="startDate" id="startDate" value="@ViewData["startDate"]" class="form-control" />
+                        </div>
+                        <div>
+                            <input type="date" name="endDate" id="endDate" value="@ViewData["endDate"]" class="form-control" />
+                        </div>
+                        <div class="search-box">
+                            <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Search..." value="@ViewData["searchQuery"]">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <table id="EmpTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Desc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach(var item in Model)
+                        {
+                            <tr>
+                               <td>@Html.DisplayFor(model => item.Worker.Name)</td>
+                               <td>@Html.DisplayFor(model => item.Desc.CompName)</td>
+                                <td>@Html.DisplayFor(model => item.Desc.Location)</td>
+                                <td>@Html.DisplayFor(model => item.Desc.Start)</td>
+                                <td>@Html.DisplayFor(model => item.Desc.End)</td>
+                                <td>@Html.DisplayFor(model => item.Desc.Title)</td>
+                            </tr>
+                        }   
+                    }
+                </tbody>
+            </table>
+            @{
+                var prevDisabled = !Model.HasPreviousPage ? "btn-disabled" : "";
+                var nextDisabled = !Model.HasNextPage ? "btn-disabled" : "";
+            }
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    const dateInput = document.getElementById("endDate");
+
+    // Add event listener for input change
+    dateInput.addEventListener("change", function () {
+        // Submit the form when the date changes
+        document.getElementById("worker-form").submit();
+    });
+</script>

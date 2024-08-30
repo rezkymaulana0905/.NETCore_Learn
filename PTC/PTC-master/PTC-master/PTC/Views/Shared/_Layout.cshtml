@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PTC</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sideBar.css" asp-append-version="true" />
+    <!-- Include Syncfusion CSS -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/19.3.47/material.css" />
+        
+</head>
+<body>
+    @{
+        var level = Context.Session.GetString("_Level");
+    }
+    <div class="flex-shrink-0" id="sidebar">
+        <div class="side-title">
+            <span>People Traffic Control</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="toggle-btn lucide lucide-menu">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" /></svg>
+        </div>  
+        <ul class="list-unstyled ps-0">
+            <li>
+                <a asp-action="Home" asp-controller="Route" class="btn-collapse border-0 collapsed" aria-expanded="false" style="text-decoration:none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1" /><rect width="7" height="5" x="14" y="3" rx="1" /><rect width="7" height="9" x="14" y="12" rx="1" /><rect width="7" height="5" x="3" y="16" rx="1" /></svg>
+                    <span>DASHBOARD</span>
+                </a>
+            </li>
+            <li>
+                <button class="btn-collapse border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#emp-collapse" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-contact"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /><rect width="18" height="18" x="3" y="4" rx="2" /><circle cx="12" cy="10" r="2" /><line x1="8" x2="8" y1="2" y2="4" /><line x1="16" x2="16" y1="2" y2="4" /></svg>
+                    <span>EMPLOYEE</span>
+                </button>
+                <div class="collapse" id="emp-collapse">
+                    <ul class="btn-collapse-nav list-unstyled">
+                        <li><a asp-action="ShowEmpPlan" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none ">Employee Plan</a></li>
+                        <li><a asp-action="ShowEmpTraffic" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none ">Employee Traffic</a></li>
+                        @if(level != "4")
+                        {
+                            <li><a asp-action="EmployeeIn" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none ">Pending Transaction</a></li>
+                        }
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <button class="btn-collapse border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#guest-collapse" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" /></svg>
+                    <span>GUEST</span>
+                </button>
+                <div class="collapse" id="guest-collapse">
+                    <ul class="btn-collapse-nav list-unstyled">
+                        <li><a asp-action="GuestRegist" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Register a Guest</a></li>
+                        @if(level == "1")
+                        {
+                            <li><a asp-action="AddGuestCategory" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Add Guest Category</a></li>
+                        }
+                        <li><a asp-action="ShowGuestPlan" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Guest Plan</a></li>
+                        <li><a asp-action="ShowGuestTraffic" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Guest Traffic</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <button class="btn-collapse border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#supplier-collapse" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-container"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z" /><path d="M10 21.9V14L2.1 9.1" /><path d="m10 14 11.9-6.9" /><path d="M14 19.8v-8.1" /><path d="M18 17.5V9.4" /></svg>                    
+                    <span>SUPPLIER</span>
+                </button>
+                <div class="collapse" id="supplier-collapse">
+                    <ul class="btn-collapse-nav list-unstyled">
+                        <li><a asp-action="ShowSupplierTraffic" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none ">Supplier Traffic</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <button class="btn-collapse border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#wp-collapse" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M15 8h-5" /><path d="M15 12h-5" /></svg>
+                    <span>CONTRACTOR</span>
+                </button>
+                <div class="collapse" id="wp-collapse">
+                    <ul class="btn-collapse-nav list-unstyled">
+                        <li><a asp-action="ShowWorkerPlan" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Contractor Plan</a></li>
+                        <li><a asp-action="ShowWorkerTraffic" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Contractor Traffic</a></li>
+                    </ul>
+                </div>
+            </li>
+            @if (level == "0")
+            {
+                <li>
+                    <button class="btn-collapse border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#user-collapse" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span>USER MANAGEMENT</span>
+                    </button>
+                    <div class="collapse" id="user-collapse">
+                        <ul class="btn-collapse-nav list-unstyled">
+                            <li><a asp-action="AddMobileUser" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">Mobile User</a></li>
+                            <li><a asp-action="AddUser" asp-controller="Route" class="link-dark d-inline-flex text-decoration-none">SSO User</a></li>
+                        </ul>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+    
+    <div id="content">
+        <div class="nav-body">
+            <div class="user-info">
+                <span class="name">@Context.Session.GetString("_Name")</span>
+                <span class="id">@Context.Session.GetString("_Id")</span>
+            </div>
+            <div>
+                <a asp-action="LogOut" asp-controller="Route" class="btn-out">
+                    <span>Back To SSO</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out" style="color:red"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></svg>
+                </a>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/chart.js"></script>
+    <!-- Include Syncfusion scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/19.3.47/dist/ej2.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

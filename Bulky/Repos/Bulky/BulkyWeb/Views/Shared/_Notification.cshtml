@@ -1,0 +1,19 @@
+﻿@if (TempData["success"] != null)
+{ 
+    @* codesuccess *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> @* get from toastr *@
+    @*<h2>@TempData["success"]</h2>  call from controller *@
+    <script>
+        toastr.success('@TempData["Success"]'); @* https://codeseven.github.io/toastr/ *@
+    </script>
+    
+}
+@if (TempData["error"] != null)
+{ @* codesuccess *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> @* get from toastr *@
+    <script>
+        toastr.success('@TempData["Success"]');
+    </script>
+}

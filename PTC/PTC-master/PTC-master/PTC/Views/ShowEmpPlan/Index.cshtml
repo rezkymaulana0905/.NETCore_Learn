@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["title"] = "Employee Plan";
+}
+@using PTC.Utils
+@model Pagination<TrxTmsEmpPcDtKpFlt>
+
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Employee Plan</h2>
+                <form method="get" action="@Url.Action("Index")" class="show-guest-form" id="employee-list">
+                    <div>
+                        <input type="date" name="startDate" id="startDate" value="@ViewData["startDate"]" class="form-control" />
+                    </div>
+                    <div>
+                        <input type="date" name="endDate" id="endDate" value="@ViewData["endDate"]" class="form-control" />
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Search..." value="@ViewData["searchQuery"]">
+                    </div>
+                </form>
+            </div>
+
+            <table id="guestListTable" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Time Out</th>
+                        <th>Time Return</th>
+                        <th>Type</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EmpId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TimeOut)</td>
+                            <td>
+                                @{
+                                    if (item.TimeReturn != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.TimeReturn)
+                                    }
+                                    else
+                                    {
+                                        @:No Time Return Yet
+                                    }
+                                }
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.TimereasonId)</td>
+                            <td>
+                                @{
+                                    if (item.Reason != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Reason)
+                                    }
+                                    else
+                                    {
+                                        @:No Reason
+                                    }
+                                }
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @{
+                var prevDisabled = !Model.HasPreviousPage ? "btn-disabled" : "";
+                var nextDisabled = !Model.HasNextPage ? "btn-disabled" : "";
+            }
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["currentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["currentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-listType="@ViewData["listType"]"
+               asp-route-searchQuery="@ViewData["searchQuery"]"
+               class="btn btn-main @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    const dateInput = document.getElementById("endDate");
+
+    // Add event listener for input change
+    dateInput.addEventListener("change", function () {
+        // Submit the form when the date changes
+        document.getElementById("employee-list").submit();
+    });
+</script>

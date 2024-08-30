@@ -1,0 +1,256 @@
+﻿@model List<Log>
+@{
+    ViewData["title"] = "Home";
+}
+<h2 style="font-weight:600; font-size: 32px; padding-left:12px;">Dashboard</h2>
+<h2 style="font-weight:400; font-size: 20px; padding-left:12px;">Actual Head Count</h2>
+<div class="count-container">
+    <div class="card count-card">
+        <div class="count-title">
+            EMPLOYEE
+        </div>
+        <span class="count">@(ViewBag.empCount)</span>
+        <span style="font-size: 14px">last update: @ViewBag.empUpdate</span>
+    </div>
+    <div class="card count-card">
+        <div class="count-title">
+            GUEST
+        </div>
+        <span class="count">@(ViewBag.guestCount)</span>
+        <span style="font-size: 14px">last update: @ViewBag.guestUpdate</span>
+    </div>
+    <div class="card count-card">
+        <div class="count-title">
+            SUPPLIER
+        </div>
+        <span class="count">@(ViewBag.suppCount)</span>
+        <span style="font-size: 14px">last update: @ViewBag.suppUpdate</span>
+    </div>
+    <div class="card count-card">
+        <div class="count-title">
+            CONTRACTOR
+        </div>
+        <span class="count">@(ViewBag.conCount)</span>
+        <span style="font-size: 14px">last update: @ViewBag.conUpdate</span>
+    </div>
+</div>
+<div class="card mt-4 mx-2 overflow-hidden">
+        <div class="px-5 py-2 border-bottom" >
+        <h1 class="card-title" style="color:#0A0A0A; margin-bottom: 20px;">Traffic Transaction</h1>
+        <div class="filter-container">
+            <a asp-action="Index"
+               asp-route-filterSummary="today"
+               asp-route-filterLog="@ViewBag.log"
+               class="filter-button @(ViewBag.sum == "today" ?"filter-active" : "")">
+                Today
+            </a>
+            <a asp-action="Index"
+               asp-route-filterSummary="last-7-day"
+               asp-route-filterLog="@ViewBag.log"
+               class="filter-button @(ViewBag.sum == "last-7-day" ?"filter-active" : "")">
+               This Week
+            </a>
+            <a asp-action="Index"
+               asp-route-filterSummary="this-month"
+               asp-route-filterLog="@ViewBag.log"
+               class="filter-button @(ViewBag.sum == "this-month" ?"filter-active" : "")">
+               This Month
+            </a>
+            <a asp-action="Index"
+               asp-route-filterSummary="last-3-month"
+               asp-route-filterLog="@ViewBag.log"
+               class="filter-button @(ViewBag.sum == "last-3-month" ? "filter-active" : "")">
+               Last 3 Month
+            </a>
+         
+        </div>
+        </div>
+    <div class="row align-items-center" style="margin-top: 20px; margin-bottom: 20px">
+        <div class="col chart-container">
+            <p>Transaction Percentage</p>
+            <canvas id="doughnut"></canvas>
+        </div>
+
+        <div class="col chart-container">
+            <p>Number of Transaction</p>
+            <canvas id="bar"></canvas>
+        </div>
+    </div>
+
+</div>
+<div class="card shadow-sm mt-4 mx-2 pb-2">
+    <div class="px-5 py-2 border-bottom" style="margin-bottom:10px">
+        <h1 class="card-title" style="color:#0A0A0A">Log Activity Today</h1>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="filter-container">
+                <a asp-action="Index"
+                   asp-route-filterSummary="@ViewBag.sum"
+                   asp-route-filterLog="plan"
+                   class="filter-button @(ViewBag.log == "plan" ? "filter-active" : "")">
+                    Plan
+                </a>
+                <a asp-action="Index"
+                   asp-route-filterSummary="@ViewBag.sum"
+                   asp-route-filterLog="in"
+                   class="filter-button @(ViewBag.log == "in" ? "filter-active" : "")">
+                    In
+                </a>
+                <a asp-action="Index"
+                   asp-route-filterSummary="@ViewBag.sum"
+                   asp-route-filterLog="out"
+                   class="filter-button @(ViewBag.log == "out" ? "filter-active" : "")">
+                    Out
+                </a>
+            </div>
+            <form asp-controller="Home"
+                  asp-action="Index"
+                  asp-route-filterSummary="@ViewBag.sum"
+                  asp-route-filterLog="@ViewBag.log"
+                  method="get"
+                  id="guest-form">
+                <div class="search-box">
+                    <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Search..." value="@ViewBag.search">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <table id="guestListTable" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if(Model != null && Model.Any())
+        {
+            @foreach (var log in Model)
+            {
+                <tr>
+                <td>
+                      @switch (log.Detail)
+                      {
+                          case "Employee":
+                              <div class="log-type-emp"></div>
+                              break;
+                          case "Guest":
+                              <div class="log-type-guest"></div>
+                              break;
+                          case "Supplier":
+                              <div class="log-type-vhc"></div>
+                              break;
+                          case "Contractor":
+                              <div class="log-type-contractor"></div>
+                              break;
+                      }
+                </td>
+                <td>
+                        @{
+                            // Check if "Panasonic" exists in the log.Name
+                            int lastPanasonicIndex = log.Name.LastIndexOf("Panasonic");
+                            if (lastPanasonicIndex != -1) // If "Panasonic" exists
+                            {
+                                // Replace only the last occurrence of "Panasonic" with the span element
+                                string formattedName = log.Name.Substring(0, lastPanasonicIndex) + "<span class='panasonic-text'>Panasonic</span>";
+
+                                // Output the formatted name using Html.Raw to render the HTML
+                                @Html.Raw(formattedName)
+                            }
+                            else // If "Panasonic" doesn't exist
+                            {
+                                // Output the original name using Html.Raw to render the HTML
+                                @Html.Raw(log.Name)
+                            }
+                        }
+                </td>
+
+            <td>@log.Detail</td>
+            <td class="log-time">
+                    @{
+                        if (ViewBag.log == "plan")
+                        {
+                            @DateTime.Today.ToShortDateString()
+                        }
+                        else
+                        {
+                            @log.Time
+                        }
+                    }
+              </td>
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    window.onload = function () {
+        const dataPoints = @Html.Raw(ViewBag.dataPoints);
+
+        const pieData = {
+            labels: dataPoints.map(dataPoint => dataPoint.label),
+            datasets: [{
+                label: "Percentege",
+                data: dataPoints.map(dataPoint => dataPoint.data),
+                backgroundColor: dataPoints.map(dataPoint => dataPoint.backgroundColor),
+                hoverOffset: 4
+            }]
+        };
+        new Chart(
+            document.getElementById('doughnut'),
+            {
+                type: 'doughnut',
+                data: pieData,
+                options: {
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    var label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += Math.round(context.parsed * 100 / @Html.Raw(ViewBag.total)) + '%';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+        const barData = {
+            labels: dataPoints.map(dataPoint => dataPoint.label),
+            datasets: [{
+                data: dataPoints.map(dataPoint => dataPoint.data),
+                backgroundColor: dataPoints.map(dataPoint => dataPoint.backgroundColor),
+                borderWidth: 1
+            }]
+        };
+        new Chart(
+            document.getElementById('bar'),
+            {
+                type: 'bar',
+                data: barData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+            }
+        );
+
+    }
+</script>
